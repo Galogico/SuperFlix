@@ -2,7 +2,6 @@ import express ,{Response,Request} from 'express';
 import {json} from 'body-parser'
 const app = express()
 app.use(json())
-
 app.get("/oi",(req: Request,res: Response)=>{
   res.send("bem vindo")
 })
@@ -18,3 +17,7 @@ app.post("/saymyname",(req: Request,res: Response)=>{
 app.listen(3001,()=>{
   console.log("api rodando")
 })
+
+
+import {connect} from './database/config'
+connect()
