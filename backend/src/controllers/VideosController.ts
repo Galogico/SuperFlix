@@ -20,7 +20,7 @@ export class VideoController{
     })
     try {
       await newVideo.save()
-      return res.status(201).json({message: "novo video cadastrado com sucesso"})
+      return res.status(201).json({message: "novo video cadastrado com sucesso",newVideo: newVideo})
     } catch (error) {
       return res.status(404).json({message: "Erro do servidor tente novamente em breve"})
     }
