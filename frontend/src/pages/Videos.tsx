@@ -1,25 +1,15 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import { videoProps } from '../components/Video'
 import Video from '../components/Video'
-
+import {getVideosData} from '../hooks/getVideosData'
 function Videos() {
-  const [videos,setVideos] = useState<videoProps[]>([
-    {
-      id: '123-3123-12',
-      name: "first video",
-      url: "https://www.youtube.com/embed/faE1EGQJ0lQ",
-    },
-    {
-      id: '123-3123-12',
-      name: "first video",
-      url: "https://www.youtube.com/embed/faE1EGQJ0lQ",
-    },
-    {
-      id: '123-3123-12',
-      name: "first video",
-      url: "https://www.youtube.com/embed/faE1EGQJ0lQ",
-    },
-  ])
+  const [videos,setVideos] = useState<videoProps[]>([])
+
+  useEffect(()=>{
+    getVideosData()
+      .then((res:videoProps[])=>setVideos(res))
+      .catch((err:any)=>console.log(err))
+  },[])
   return (
     <div>
        <h1>Videos inscritos</h1>
