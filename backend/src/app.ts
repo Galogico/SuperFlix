@@ -2,6 +2,9 @@ import express ,{Response,Request} from 'express';
 import {json} from 'body-parser'
 const app = express()
 app.use(json())
+import VideoRouter from './routes/VideoRoutes'
+app.use("/videos",VideoRouter)
+
 app.get("/oi",(req: Request,res: Response)=>{
   res.send("bem vindo")
 })
