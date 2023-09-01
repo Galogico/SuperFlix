@@ -6,23 +6,7 @@ import Video, { videoProps } from './components/Video';
 import { router } from './router';
 import {RouterProvider} from 'react-router-dom'
 function App() {
-  const [videos,setVideos] = useState<videoProps[]>([
-    {
-      id: '123-3123-12',
-      name: "first video",
-      url: "link",
-    },
-    {
-      id: '123-3123-12',
-      name: "first video",
-      url: "link",
-    },
-    {
-      id: '123-3123-12',
-      name: "first video",
-      url: "https://www.youtube.com/embed/faE1EGQJ0lQ",
-    },
-  ])
+  const [videos,setVideos] = useState<videoProps[]>([])
 
   return (
     <div className="App">

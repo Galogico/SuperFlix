@@ -1,7 +1,7 @@
 import React from 'react'
 import "./Video.css"
 export interface videoProps {
-  id: string,
+  _id: string,
   name: string,
   description?: string,
   url: string

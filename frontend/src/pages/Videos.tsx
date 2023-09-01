@@ -16,7 +16,7 @@ function Videos() {
       <div className='videos-div'>
         
         {
-          videos.map(v=><Video key={v.id} {...v}/>)
+          videos.map(v=><Video key={v._id} {...v}/>)
         }
       </div> 
     </div>
