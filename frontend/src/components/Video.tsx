@@ -1,11 +1,9 @@
 import React from 'react'
 import "./Video.css"
-export interface videoProps {
-  _id: string,
-  name: string,
-  description?: string,
-  url: string
-}
+import {BsTrash3Fill} from 'react-icons/bs';
+import { videoProps } from '../interfaces/videoProps';
+
+
 function Video(props: videoProps) {
   return (
     <div className='cardVideo'>
@@ -17,6 +15,11 @@ function Video(props: videoProps) {
           : "não tem descrição"
         } 
       </p>
+      <div>
+        <div>
+          <BsTrash3Fill size={28} color="#ff2fff"/>
+        </div>
+      </div>
     </div>
   )
 }

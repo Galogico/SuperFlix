@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react'
-import { videoProps } from '../components/Video'
+import { videoProps } from '../interfaces/videoProps' 
 import Video from '../components/Video'
 import {getVideosData} from '../hooks/getVideosData'
 function Videos() {

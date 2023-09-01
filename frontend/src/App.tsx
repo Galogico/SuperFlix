@@ -2,9 +2,10 @@ import React,{useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Navbar from './components/Navbar';
-import Video, { videoProps } from './components/Video';
+import Video from './components/Video';
 import { router } from './router';
 import {RouterProvider} from 'react-router-dom'
+import { videoProps } from './interfaces/videoProps';
 function App() {
   const [videos,setVideos] = useState<videoProps[]>([])
 
