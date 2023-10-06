@@ -5,6 +5,7 @@ import {getVideosData} from '../hooks/getVideosData'
 import { DELETED_VIDEO } from '../types/deleteVideoTypes'
 import AddNewButton from '../components/Botao'
 import axios from 'axios'
+import Modal from '../components/Modal'
 
 function Videos() {
   const [videos,setVideos] = useState<videoProps[]>([])
@@ -46,11 +47,10 @@ function Videos() {
   return (
     <div>
        <h1>Videos inscritos</h1>
-      <AddNewButton abrirModal={mudarModal}
+      <AddNewButton abrirOModal={mudarModal} />
       {
-        showModal ? <Modal fecharModal={mudarModal}/> : null
+        showModal ? <Modal onCreateVideo={createVideo} EditarVideo={ editVideo } fecharOModal={mudarModal}/> : null
       }
-      />
       <div className='videos-div'>
         
         {

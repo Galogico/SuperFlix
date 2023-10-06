@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import "./Form.css";
-import { FormProps } from '../interfaces/formProps';
+import { FormProps } from "../interfaces/formProps";
 
 function Form(props: FormProps){
   const [title, setTitle] = useState<string>("");
@@ -8,6 +8,42 @@ function Form(props: FormProps){
   const [url, setUrl] = useState<string>("");
   const [editMode, setEdit] = useState<boolean>(false);
 
+  useEffect(()=> {
+    let id = localStorage.getItem("id")
+    let storedTitle = localStorage.getItem("title")
+    let description = localStorage.getItem("description")
+    let storedUrl = localStorage.getItem("url")
+    if(id !== null){
+      setEdit(true);
+      setDesc(description || "");
+      setTitle(storedTitle || "");
+      setUrl(storedUrl || "");
+    }else{
+      setEdit(false);
+    }
+  }, []);
+
+  const handleCreateVideo = () =>{
+    if(editMode){
+      let id = localStorage.getItem("id");
+      setTitle("");
+      setDesc("");
+      setUrl("");
+    }
+    else {
+      props.onCreateVideo(title, desc, url);
+    }
+
+    setTitle("");
+    setDesc("");
+    setUrl("");
+    props.onCreateVideo(title, desc, url)
+  }
+
+  const envioForm = (e: React.FormEvent) => {
+    e.preventDefault();
+    handleCreateVideo();
+  }
 
   return (
     <form onSubmit={envioForm} className={"form"}>
