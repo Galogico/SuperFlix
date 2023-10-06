@@ -8,12 +8,15 @@ export const deleteVideo = async (id:string)=>{
     if(response.ok){
       console.log(DELETED_VIDEO)
       return DELETED_VIDEO
+      // Se o backend der certo 
     }else{
       console.log(FAILED_DELETED_VIDEO)
       return FAILED_DELETED_VIDEO
+      // Se o backend der errado
     }
   } catch (error) {
     console.log(ERROR_ON_DELETED_VIDEO)
     return ERROR_ON_DELETED_VIDEO
+    // Se o frontend der errado
   }
 }
